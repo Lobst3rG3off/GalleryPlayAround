@@ -7,11 +7,17 @@ function Gallery(gallery) {
   const modal = document.querySelector('.modal')
   const prevButton = modal.querySelector('.prev')
   const nextButton = modal.querySelector('.next')
-  let currentTarget
+  let currentImage
 
   function openModal() {
     console.info('opening modal')
     // first check if the modal is already open
+    if (modal.matches('.open')) {
+      console.info('modal already open')
+      return;
+    } else {
+      modal.classList.add('open')
+    }
   }
   function showImage(el) {
     if (!el) {
