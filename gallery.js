@@ -18,6 +18,17 @@ function Gallery(gallery) {
     } else {
       modal.classList.add('open')
     }
+  function closeModal() {
+ modal.classList.remove('open')
+//  add event listeners for outside clicks or escape
+}
+
+function handleCLickOutside(e) {
+  if (e.target === e.currentTarget) {
+    closeModal()
+  }
+}
+
   }
   function showImage(el) {
     if (!el) {
@@ -31,8 +42,13 @@ function Gallery(gallery) {
     currentImage = el
     openModal()
   }
+
+  // event listeners
  
-  images.forEach(image => image.addEventListener('click', (e) => showImage(e.currentTarget)))
+  images.forEach(image =>
+     image.addEventListener('click', (e) => showImage(e.currentTarget)))
+
+     modal.addEventListener('click', handleCLickOutside)
 }
 
 //use it on the page
