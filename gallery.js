@@ -7,18 +7,26 @@ function Gallery(gallery) {
   const modal = document.querySelector('.modal')
   const prevButton = modal.querySelector('.prev')
   const nextButton = modal.querySelector('.next')
+  let currentTarget
 
+  function openModal() {
+    console.info('opening modal')
+    // first check if the modal is already open
+  }
   function showImage(el) {
     if (!el) {
       console.info('no image to show')
       return
     }
     console.log(el)
+    modal.querySelector('img').src = el.src;
+    modal.querySelector('h2').textContent = el.title;
+    modal.querySelector('figure p').textContent = el.dataset.description;
+    currentImage = el
+    openModal()
   }
-  function handleImageClick(e) {
-    showImage(event.currentTarget)
-  }
-  images.forEach(image => image.addEventListener('click', handleImageClick))
+ 
+  images.forEach(image => image.addEventListener('click', (e) => showImage(e.currentTarget)))
 }
 
 //use it on the page
