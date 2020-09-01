@@ -11,8 +11,14 @@ function Gallery(gallery) {
   function showImage(el) {
     if (!el) {
       console.info('no image to show')
+      return
     }
+    console.log(el)
   }
+  function handleImageClick(e) {
+    showImage(event.currentTarget)
+  }
+  images.forEach(image => image.addEventListener('click', handleImageClick))
 }
 
 //use it on the page
