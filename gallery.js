@@ -5,10 +5,14 @@ function Gallery(gallery) {
   //select the elements needed
   const images = Array.from(gallery.querySelectorAll('img')) ;
   const modal = document.querySelector('.modal')
-  console.log(images)
+  const prevButton = modal.querySelector('.prev')
+  const nextButton = modal.querySelector('.next')
 
-  
-  
+  function showImage(el) {
+    if (!el) {
+      console.info('no image to show')
+    }
+  }
 }
 
 //use it on the page
